@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PeopleAndPlacesDBModelStoreContainer" CdmEntityContainer="PeopleAndPlacesDBEntities">
+    <EntitySetMapping Name="PeopleTbl">
+      <EntityTypeMapping TypeName="PeopleAndPlacesDBModel.PeopleTbl">
+        <MappingFragment StoreEntitySet="PeopleTbl">
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Profession" ColumnName="Profession" />
+          <ScalarProperty Name="Bio" ColumnName="Bio" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlacesTbl">
+      <EntityTypeMapping TypeName="PeopleAndPlacesDBModel.PlacesTbl">
+        <MappingFragment StoreEntitySet="PlacesTbl">
+          <ScalarProperty Name="PlacesID" ColumnName="PlacesID" />
+          <ScalarProperty Name="PlaceName" ColumnName="PlaceName" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="PlaceType" ColumnName="PlaceType" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

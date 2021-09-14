@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Domican_Stephen_S00209029_Web_Application_Project.Models.PeopleTbl>
+
+@{
+    ViewBag.Title = "People List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>People List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profession)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profession)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bio)
+        </td>
+        <td>
+            @if (item.Image != null)
+            {
+                var imageAsBase64String = Convert.ToBase64String(item.Image);
+                var imageAsGif = string.Format("data:image/gif; base64, {0}", imageAsBase64String);
+                <img src="@imageAsGif" class="img-circle" style="max-height:100px; max-width:100px" />
+
+            }
+            else
+            {
+                <span>No Image Found</span>
+            }
+
+
+
+            @*@Html.DisplayFor(modelItem => item.Image)*@
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PersonID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PersonID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PersonID })
+        </td>
+    </tr>
+}
+
+</table>

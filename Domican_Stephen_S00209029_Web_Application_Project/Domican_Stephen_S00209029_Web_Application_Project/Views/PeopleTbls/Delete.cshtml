@@ -1,0 +1,74 @@
+﻿@model Domican_Stephen_S00209029_Web_Application_Project.Models.PeopleTbl
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete character</h2>
+
+<h3>Are you sure you want to delete character @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)?</h3>
+<div>
+    <h4>Character details:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profession)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profession)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @if (Model.Image != null)
+            {
+                var imageAsBase64String = Convert.ToBase64String(Model.Image);
+                var imageAsGif = string.Format("data:image/gif; base64, {0}", imageAsBase64String);
+                <img src="@imageAsGif" class="img-circle" style="max-height:100px; max-width:100px" />
+            }
+            else
+            {
+                <span>No Image Found</span>
+            }
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

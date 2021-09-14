@@ -1,0 +1,13 @@
+﻿@model Domican_Stephen_S00209029_Web_Application_Project.Models.PeopleTbl
+@*Website connects to an API which provides a random name that is generated from a randomly selected first name and random surname taken from the API's database.*@
+<h2>Generate random character names</h2>
+
+<p>Struggling to come up with a name for a character in the novel you are writing?</p>
+<p>Use the name generator below to come up with some ideas.</p>
+<p></p>
+<br />
+<p style="font-weight:bold; font-size : large">Random name generated is @ViewBag.InfoFromNameAPI</p>
+<p></p>
+<br />
+<button type="button" onClick="window.location.reload();" class="btn btn-primary">Generate Another Random Name</button>
+<p></p>

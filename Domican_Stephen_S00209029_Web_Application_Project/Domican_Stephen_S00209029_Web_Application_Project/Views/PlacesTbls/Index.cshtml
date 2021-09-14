@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Domican_Stephen_S00209029_Web_Application_Project.Models.PlacesTbl>
+
+@{
+    ViewBag.Title = "Places List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Places List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaceType)
+        </td>
+        <td>
+            @if (item.Image != null)
+            {
+                var imageAsBase64String = Convert.ToBase64String(item.Image);
+                var imageAsGif = string.Format("data:image/gif; base64, {0}", imageAsBase64String);
+                <img src="@imageAsGif" class="img-circle" style="max-height:100px; max-width:100px" />
+
+            }
+            else
+            {
+                <span>No Image Found</span>
+            }
+
+            @*
+            @Html.DisplayFor(modelItem => item.Image)
+            *@
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PlacesID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PlacesID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PlacesID })
+        </td>
+    </tr>
+}
+
+</table>

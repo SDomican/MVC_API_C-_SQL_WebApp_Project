@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApiPlaceInfoDBModelStoreContainer" CdmEntityContainer="ApiPlaceInfoDBEntities">
+    <EntitySetMapping Name="InfoTbls">
+      <EntityTypeMapping TypeName="ApiPlaceInfoDBModel.InfoTbl">
+        <MappingFragment StoreEntitySet="InfoTbl">
+          <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+          <ScalarProperty Name="InfoPlaceName" ColumnName="InfoPlaceName" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NameTbls">
+      <EntityTypeMapping TypeName="ApiPlaceInfoDBModel.NameTbl">
+        <MappingFragment StoreEntitySet="NameTbl">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="NameID" ColumnName="NameID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

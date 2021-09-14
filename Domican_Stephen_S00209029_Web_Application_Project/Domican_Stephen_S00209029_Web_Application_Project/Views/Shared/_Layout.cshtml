@@ -1,0 +1,25 @@
+﻿
+<!DOCTYPE html>
+<html>
+<!--HTML for About page-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <!-- Side navigation -->
+    <div class="sidenav">
+        @Html.ActionLink("Home", "Index", "Home")
+        @Html.ActionLink("About", "About", "Home")
+        @Html.ActionLink("People", "/", "ShowAllPeople")
+        @Html.ActionLink("Places", "/", "ShowAllPlaces")
+        @Html.ActionLink("Generate Names", "Names", "PeopleTbls")
+    </div>
+
+    <!-- Page content -->
+    <div class="main">
+        @RenderBody()
+    </div>
+</body>
+</html>

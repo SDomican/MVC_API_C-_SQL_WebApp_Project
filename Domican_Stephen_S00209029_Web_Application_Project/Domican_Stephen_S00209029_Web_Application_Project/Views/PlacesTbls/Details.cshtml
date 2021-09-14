@@ -1,0 +1,78 @@
+﻿@model Domican_Stephen_S00209029_Web_Application_Project.Models.PlacesTbl
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete location</h2>
+
+<div>
+    <h4>Are you sure you want to delete  @Html.DisplayNameFor(model => model.Location)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @if (Model.Image != null)
+            {
+                var imageAsBase64String = Convert.ToBase64String(Model.Image);
+                var imageAsGif = string.Format("data:image/gif; base64, {0}", imageAsBase64String);
+                <img src="@imageAsGif" class="img-circle" style="max-height:100px; max-width:100px" />
+            }
+            else
+            {
+                <span>No Image Found</span>
+            }
+
+            @*
+            @Html.DisplayFor(model => model.Image)
+            *@
+        </dd>
+        <dt>
+            <label>More information</label>
+        </dt>
+        <dd>
+            @ViewBag.InfoFromApi
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlacesID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
